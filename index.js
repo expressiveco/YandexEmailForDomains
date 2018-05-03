@@ -89,7 +89,7 @@
         var domains = getAllDomains();
         var result = domains.filter(d => d.toLowerCase() == domain.toLowerCase());
         if (result.length > 0) {
-            var $elm = $(`:contains(${domain})`)
+            var $elm = $(`a:contains(${domain})`)
             $elm.css('background-color', 'yellow');
             scrollIntoView($elm);            
             alert("Domain found");
