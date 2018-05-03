@@ -72,7 +72,7 @@
     function init() {
         //initUI();
 
-        var currentPage = parseInt(getStoredKeyword("page"), 10) || 0;
+        var currentPage = parseInt(getStoredKeyword("__page"), 10) || 0;
         var domain;
         if (currentPage == 0) {
             currentPage = 1;
@@ -80,11 +80,11 @@
             if (domain == null)
                 return;
             else {
-                updateStoredKeyword("domain", domain);
+                updateStoredKeyword("__domainName", domain);
             }
         }
         else
-            domain = getStoredKeyword("domain");
+            domain = getStoredKeyword("__domainName");
 
         var domains = getAllDomains();
         var result = domains.filter(d => d.toLowerCase() == domain.toLowerCase());
@@ -96,12 +96,12 @@
 
         var pageCount = parseInt(getPageCount(), 10);
         if (currentPage == pageCount) {
-            updateStoredKeyword("page", 0);
-            updateStoredKeyword("domain", "");
+            updateStoredKeyword("__page", 0);
+            updateStoredKeyword("__domainName", "");
             alert("Domain not found");
             return;
         }
-        updateStoredKeyword("page", ++currentPage);
+        updateStoredKeyword("__page", ++currentPage);
         location.href = `https://kurum.yandex.com.tr/?p=${currentPage}`;
     }
 
