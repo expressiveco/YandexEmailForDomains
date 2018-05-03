@@ -87,7 +87,7 @@
             domain = getStoredKeyword("__domainName");
 
         var domains = getAllDomains();
-        var result = domains.filter(d => d.toLowerCase() == domain.toLowerCase());
+        var result = domains.filter(d => d.toLowerCase().indexOf(domain.toLowerCase()) != -1);
         if (result.length > 0) {
             var $elm = $(`a:contains(${domain})`)
             $elm.css('background-color', 'yellow');
