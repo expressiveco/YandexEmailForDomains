@@ -72,7 +72,7 @@
     function init() {
         //initUI();
 
-        var currentPage = parseInt(getStoredKeyword("page"), 10);
+        var currentPage = parseInt(getStoredKeyword("page"), 10) || 0;
         var domain;
         if (currentPage == 0) {
             currentPage = 1;
@@ -88,7 +88,7 @@
 
         updateStoredKeyword();
         var domains = getAllDomains();
-        var result = domains.filter(d => d.toLowerCase() == domain.toLowerCase())
+        var result = domains.filter(d => d.toLowerCase() == domain.toLowerCase());
         if (result.length > 0) {
             scrollIntoView($(`:contains(${domain})`));
             alert("Domain found");
