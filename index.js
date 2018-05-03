@@ -86,7 +86,6 @@
         else
             domain = getStoredKeyword("domain");
 
-        updateStoredKeyword();
         var domains = getAllDomains();
         var result = domains.filter(d => d.toLowerCase() == domain.toLowerCase());
         if (result.length > 0) {
