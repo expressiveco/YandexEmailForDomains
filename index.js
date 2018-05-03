@@ -93,6 +93,8 @@
             $elm.css('background-color', 'yellow');
             scrollIntoView($elm);            
             alert("Domain found");
+            updateStoredKeyword("__page", 0);
+            updateStoredKeyword("__domainName", "");            
             return;
         }
 
